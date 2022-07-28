@@ -1,0 +1,14 @@
+<div class="face-snap-card" [ngClass]="{snapped : buttonText === 'Oops, unSnap!'}">
+  <p>{{345.500 | currency:"TD" }}</p>
+  <h2>{{ faceSnap.title | titlecase }}</h2>
+
+  <p>Mis en ligne le {{ faceSnap.createdDate | date:'d MMMM yyyy' }}</p>
+  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+  <p>{{ faceSnap.description }}</p>
+  <p *ngIf="faceSnap.location ">Photo prise à {{faceSnap.location}}</p>
+  <p>
+    <button (click)="onSnap()"> {{buttonText}}</button>  <!-- pour lier la methode onAddSnap au bouton (event Binding) il faut utiliser des parenthèses () -->
+    <span [ngStyle]="{color: 'pink'}"> 🤌 {{ faceSnap.snaps}}</span>
+    <a routerLink="/facesnaps">Back</a>
+</div>
+
